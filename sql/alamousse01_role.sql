@@ -1,4 +1,0 @@
-INSERT INTO alamousse01.role (id, create_time, name, remark, data_scope, level, shop_id) VALUES (1, '2018-11-23 11:04:37', '超级管理员', '系统所有权', '全部', 1, 1);
-INSERT INTO alamousse01.role (id, create_time, name, remark, data_scope, level, shop_id) VALUES (2, '2018-11-23 13:09:06', '普通用户', '用于测试菜单与权限', '自定义', 3, 1);
-INSERT INTO alamousse01.role (id, create_time, name, remark, data_scope, level, shop_id) VALUES (4, '2019-05-13 14:16:15', '普通管理员', '普通管理员级别为2，使用该角色新增用户时只能赋予比普通管理员级别低的角色', '自定义', 2, 1);
-INSERT INTO alamousse01.role (id, create_time, name, remark, data_scope, level, shop_id) VALUES (5, '2019-08-01 22:15:32', 'restaunt_manager', '', '本级', 2, 1);

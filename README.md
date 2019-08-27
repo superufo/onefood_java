@@ -1,28 +1,7 @@
-<h1 style="text-align: center">el-admin 后台管理系统</h1>
-<div style="text-align: center">
-
-[![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/elunez/alamousse/blob/master/LICENSE)
-[![star](https://gitee.com/elunez/alamousse/badge/star.svg?theme=white)](https://gitee.com/elunez/alamousse)
-[![GitHub stars](https://img.shields.io/github/stars/elunez/alamousse.svg?style=social&label=Stars)](https://github.com/elunez/alamousse)
-[![GitHub forks](https://img.shields.io/github/forks/elunez/alamousse.svg?style=social&label=Fork)](https://github.com/elunez/alamousse)
-
-</div>
+<h1 style="text-align: center">onefood-admin 后台管理系统</h1>
 
 #### 项目简介
 alamousse基于 Spring Boot 2.1.0 、 Jpa、 Spring Security、redis、Vue的前后端分离的后台管理系统， 权限控制的方式为RBAC，项目支持数据字典与数据权限管理，支持一键生成前后端代码，支持前端菜单动态路由
-
-**开发文档**  [https://docs.auauz.net/](https://docs.auauz.net)
-
-**体验地址**  [https://auauz.net/](https://auauz.net/)
-
-**账号密码** ```admin/123456```(默认密码都是123456)
-
-#### 项目源码
-
-|     |   后端源码  |   前端源码  |
-|---  |--- | --- |
-|  github   |  https://github.com/elunez/alamousse   |  https://github.com/elunez/alamousse-qd   |
-|  码云   |  https://gitee.com/elunez/alamousse   |  https://gitee.com/elunez/alamousse-qt   |
 
 ####  系统功能
 - 用户管理：提供用户的相关配置，新增用户后，默认密码为123456

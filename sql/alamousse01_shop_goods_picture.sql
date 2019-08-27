@@ -1,2 +1,0 @@
-INSERT INTO alamousse01.shop_goods_picture (id, shop_id, goods_id, pic_id, url, create_time, update_time) VALUES (34, 2, 1, 41, 'https://i.loli.net/2019/07/31/5d419b43ac10d80619.png', null, null);
-INSERT INTO alamousse01.shop_goods_picture (id, shop_id, goods_id, pic_id, url, create_time, update_time) VALUES (35, 2, 1, 43, 'https://i.loli.net/2019/08/01/5d42fccb10b3855575.png', null, null);
