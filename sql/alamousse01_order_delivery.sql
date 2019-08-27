@@ -1,0 +1,1 @@
+INSERT INTO alamousse01.order_delivery (id, shop_id, order_id, mid, account, delivery_time, country, province, city, address, price) VALUES (4, 3, 'acb9a11df71f4bb49baaa3176865481a', 100000, 'guest001', '2019-07-02T16:00:00.000Z', '1', '301', '10000', '', 25.00);

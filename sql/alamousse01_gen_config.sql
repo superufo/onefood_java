@@ -1,0 +1,1 @@
+INSERT INTO alamousse01.gen_config (id, author, cover, module_name, pack, path, api_path, prefix) VALUES (1, 'mike', false, 'alamousse-system', 'com.alamousse.modules.market', 'D:\\reactnative_pro\\food\\restaurant_manager\\admin\\eladmin-qd-master\\src\\views\\market\\redeemPoint', 'D:\\reactnative_pro\\food\\restaurant_manager\\admin\\eladmin-qd-master\\src\\api', null);

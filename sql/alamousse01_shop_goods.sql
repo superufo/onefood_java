@@ -1,0 +1,1 @@
+INSERT INTO alamousse01.shop_goods (id, catagrory_id, shop_id, cname, ename, price, discount, point, is_promote, promote_price, cost, currency, unit, edescription, cdescription, img_id, img_url) VALUES (1, 2, 2, '卤牛肉', 'beef with halogen', 80.00, 8, 85.00, 120, 70.00, 10.00, 'USD', '$', 'beef with halogen', 'beef with halogen', null, null);

@@ -1,0 +1,11 @@
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (1, 'alamousse', 0, '2019-03-25 09:14:05', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (2, '研发部', 7, '2019-03-25 09:15:32', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (5, '运维部', 7, '2019-03-25 09:20:44', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (6, '测试部', 8, '2019-03-25 09:52:18', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (7, '美国东部', 1, '2019-03-25 11:04:50', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (8, '湾区', 1, '2019-03-25 11:04:53', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (9, '财务部', 7, '2019-03-25 11:05:34', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (10, '行政部', 8, '2019-03-25 11:05:58', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (11, '人事部', 8, '2019-03-25 11:07:58', true);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (12, '市场部', 7, '2019-03-25 11:10:24', false);
+INSERT INTO alamousse01.dept (id, name, pid, create_time, enabled) VALUES (13, '分店', 1, '2019-07-23 22:39:03', true);
