@@ -20,7 +20,6 @@ alamousse基于 Spring Boot 2.1.0 、 Jpa、 Spring Security、redis、Vue的前
 - 邮件工具：配合富文本，发送html格式的邮件
 - 免费图床：使用sm.ms图床，用作公共图片上传使用
 - 七牛云存储：可同步七牛云存储的数据到系统，无需登录七牛云直接操作云数据
-- 支付宝支付：整合了支付宝支付并且提供了测试账号，可自行测试
 
 #### 项目结构
 项目采用分模块开发方式，将通用的配置放在公共模块，```system```模块为系统核心模块也是项目入口模块，```logging``` 模块为系统的日志模块，```tools``` 为第三方工具模块，包含了图床、邮件、七牛云、支付宝，```generator``` 为系统的代码生成模块
@@ -36,3 +35,17 @@ alamousse基于 Spring Boot 2.1.0 、 Jpa、 Spring Security、redis、Vue的前
 - alamousse-logging 系统日志模块
 - alamousse-tools 系统第三方工具模块
 - alamousse-generator 系统代码生成模块
+
+#### 开发
+
+Google: developonefood@gmail.com psw：xc8tmg2b
+Facebook, 
+
+#### 部署
+
+```
+cd /usr/local/tomcat
+sh /usr/local/tomcat/bin/startup.sh
+/usr/local/tomcat/bin/catalina.sh stop
+```
+

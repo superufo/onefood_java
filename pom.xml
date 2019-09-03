@@ -18,7 +18,7 @@
         <module>alamousse-app</module>
     </modules>
 
-    <name>el-admin</name>
+    <name>alamousse-admin</name>
     <url>http://test.net</url>
 
     <parent>

@@ -79,9 +79,13 @@ public class MemberAuthenticationController {
             return ResponseEntity.ok(new HttpResponse(1,null,"password error"));
             //throw new AccountExpiredException("password error");
         }
-
-        if(!jwtMember.getShopId().equals(authorizationUser.getShopId())){
-            return ResponseEntity.ok(new HttpResponse(1,null,"no members in system"));
+        System.out.print("-----------------------------------------");
+        System.out.print(jwtMember.getShopId());
+        System.out.print("\n---------\n");
+        System.out.print(authorizationUser.getShopId());
+        System.out.print("-----------------------------------------");
+        if( !jwtMember.getShopId().toString().equals(authorizationUser.getShopId())){
+            return ResponseEntity.ok(new HttpResponse(1,null,"the member is not  in the shop"));
             //throw new AccountExpiredException("password error");
         }
 
