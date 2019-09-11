@@ -70,4 +70,13 @@ public class ShopGoodsPictureServiceImpl implements ShopGoodsPictureService {
     public void delete(Long id) {
         shopGoodsPictureRepository.deleteById(id);
     }
+
+    //todo 删除磁盘图片位置
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteByGoodsId(Integer goodsId) {
+        //todo 删除磁盘图片位置
+        shopGoodsPictureRepository.deleteByGoodsId(goodsId);
+    }
+
 }

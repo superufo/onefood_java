@@ -3,6 +3,7 @@ package com.alamousse.modules.shop.service.impl;
 import com.alamousse.modules.shop.domain.Shop;
 import com.alamousse.modules.shop.domain.ShopGoods;
 import com.alamousse.modules.shop.domain.ShopGoodsCatagrory;
+import com.alamousse.modules.shop.repository.ShopGoodsPictureRepository;
 import com.alamousse.modules.shop.repository.ShopGoodsRepository;
 import com.alamousse.modules.shop.service.ShopGoodsService;
 import com.alamousse.modules.shop.service.dto.ShopGoodsCatagroryDTO;
@@ -45,6 +46,9 @@ public class ShopGoodsServiceImpl implements ShopGoodsService {
 
     @Autowired
     private ShopMapper shopMapper;
+
+    @Autowired
+    private ShopGoodsPictureRepository shopGoodsPictureRepository;
 
     @Autowired
     private ShopGoodsCatagroryMapper shopGoodsCatagroryMapper;
@@ -106,6 +110,9 @@ public class ShopGoodsServiceImpl implements ShopGoodsService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void delete(Integer id) {
+        //删除
+        shopGoodsPictureRepository.deleteByGoodsId(id);
+
         shopGoodsRepository.deleteById(id);
     }
 

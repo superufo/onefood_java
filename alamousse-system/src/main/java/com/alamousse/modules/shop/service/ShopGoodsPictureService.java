@@ -61,4 +61,13 @@ public interface ShopGoodsPictureService {
      */
     //@CacheEvict(allEntries = true)
     void delete(Long id);
+
+    /**
+     * delete
+     * @param id
+     */
+    //@CacheEvict(allEntries = true)
+    void deleteByGoodsId(Integer goodsId);
+
+
 }
