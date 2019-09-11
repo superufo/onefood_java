@@ -49,3 +49,21 @@ sh /usr/local/tomcat/bin/startup.sh
 /usr/local/tomcat/bin/catalina.sh stop
 ```
 
+#### 打包
+
+```
+cd  D:\reactnative_pro\food\restaurant_manager\admin\alamousse-master
+
+mvn clean && mvn compile && mvn package
+```
+
+
+
+
+
+
+
+
+
+
+

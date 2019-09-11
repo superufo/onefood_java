@@ -32,7 +32,6 @@ public class ShopGoodsController {
     @Log("查询ShopGoods")
     @ApiOperation(value = "查询ShopGoods")
     @GetMapping(value = "/shopGoods")
-    @PreAuthorize("hasAnyRole('ADMIN','SHOPGOODS_ALL','SHOPGOODS_SELECT')")
     public ResponseEntity getShopGoods(ShopGoodsQueryCriteria criteria, Pageable pageable){
         this.setSearchShop(criteria);
         return new ResponseEntity(shopGoodsService.queryAll(criteria,pageable),HttpStatus.OK);
@@ -41,7 +40,7 @@ public class ShopGoodsController {
     @Log("新增ShopGoods")
     @ApiOperation(value = "新增ShopGoods")
     @PostMapping(value = "/shopGoods")
-    @PreAuthorize("hasAnyRole('ADMIN','SHOPGOODS_ALL','SHOPGOODS_CREATE')")
+    //@PreAuthorize("hasAnyRole('ADMIN','SHOPGOODS_ALL','SHOPGOODS_CREATE')")
     public ResponseEntity create(@Validated @RequestBody ShopGoods resources){
         return new ResponseEntity(shopGoodsService.create(resources),HttpStatus.CREATED);
     }
@@ -49,7 +48,6 @@ public class ShopGoodsController {
     @Log("修改ShopGoods")
     @ApiOperation(value = "修改ShopGoods")
     @PutMapping(value = "/shopGoods")
-    @PreAuthorize("hasAnyRole('ADMIN','SHOPGOODS_ALL','SHOPGOODS_EDIT')")
     public ResponseEntity update(@Validated @RequestBody ShopGoods resources){
         shopGoodsService.update(resources);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
@@ -58,7 +56,6 @@ public class ShopGoodsController {
     @Log("删除ShopGoods")
     @ApiOperation(value = "删除ShopGoods")
     @DeleteMapping(value = "/shopGoods/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','SHOPGOODS_ALL','SHOPGOODS_DELETE')")
     public ResponseEntity delete(@PathVariable Integer id){
         shopGoodsService.delete(id);
         return new ResponseEntity(HttpStatus.OK);

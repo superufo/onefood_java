@@ -51,8 +51,6 @@ public class ShopGoodsCatagroryController {
         return new ResponseEntity(shopGoodsCatagroryService.queryAll(criteria),HttpStatus.OK);
     }
 
-
-
     //只能够删除 城市和 区域一级的.
     @Log("删除ShopGoodsCatagrory")
     @ApiOperation(value = "删除ShopGoodsCatagrory")

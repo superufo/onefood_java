@@ -1,19 +1,30 @@
 package com.alamousse.modules.shop.service.impl;
 
+import com.alamousse.modules.shop.domain.Shop;
 import com.alamousse.modules.shop.domain.ShopGoods;
+import com.alamousse.modules.shop.domain.ShopGoodsCatagrory;
 import com.alamousse.modules.shop.repository.ShopGoodsRepository;
 import com.alamousse.modules.shop.service.ShopGoodsService;
+import com.alamousse.modules.shop.service.dto.ShopGoodsCatagroryDTO;
 import com.alamousse.modules.shop.service.dto.ShopGoodsDTO;
 import com.alamousse.modules.shop.service.mapper.ShopGoodsMapper;
 import com.alamousse.utils.PageUtil;
 import com.alamousse.utils.QueryHelp;
 import com.alamousse.utils.ValidationUtil;
 import com.alamousse.modules.shop.service.dto.ShopGoodsQueryCriteria;
+import com.alibaba.fastjson.JSON;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
+
+import com.alamousse.modules.shop.service.ShopService;
+import com.alamousse.modules.shop.service.ShopGoodsCatagroryService;
+import com.alamousse.modules.shop.service.dto.ShopDTO;
+import  com.alamousse.modules.shop.service.mapper.ShopMapper;
+import  com.alamousse.modules.shop.service.mapper.ShopGoodsCatagroryMapper;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +42,18 @@ public class ShopGoodsServiceImpl implements ShopGoodsService {
 
     @Autowired
     private ShopGoodsMapper shopGoodsMapper;
+
+    @Autowired
+    private ShopMapper shopMapper;
+
+    @Autowired
+    private ShopGoodsCatagroryMapper shopGoodsCatagroryMapper;
+
+    @Autowired
+    private ShopService shopService;
+
+    @Autowired
+    private ShopGoodsCatagroryService shopGoodsCatagroryService;
 
     @Override
     public Object queryAll(ShopGoodsQueryCriteria criteria, Pageable pageable){
@@ -52,9 +75,22 @@ public class ShopGoodsServiceImpl implements ShopGoodsService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public ShopGoodsDTO create(ShopGoods resources) {
+    public ShopGoodsDTO create(ShopGoodsDTO resources) {
         //resources.setId(IdUtil.simpleUUID());
-        return shopGoodsMapper.toDto(shopGoodsRepository.save(resources));
+        //shopService.findById() new  ShopGoods();
+
+        ShopDTO  shopDTO = shopService.findById(resources.getShopId());
+        Shop shop =  shopMapper.toEntity(shopDTO);
+
+        ShopGoodsCatagroryDTO shopGoodsCatagroryDTO =  shopGoodsCatagroryService.findById(resources.getCatagroryId());
+        ShopGoodsCatagrory shopGoodsCatagrory = shopGoodsCatagroryMapper.toEntity(shopGoodsCatagroryDTO);
+
+        ShopGoods   shopGoods = shopGoodsMapper.toEntity(resources);
+        shopGoods.setGoodsCatagrory(shopGoodsCatagrory);
+        shopGoods.setShop(shop);
+
+        System.out.print(JSON.toJSONString(shopGoods));
+        return shopGoodsMapper.toDto(shopGoodsRepository.save(shopGoods));
     }
 
     @Override

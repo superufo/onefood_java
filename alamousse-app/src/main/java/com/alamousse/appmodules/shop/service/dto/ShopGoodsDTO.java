@@ -18,11 +18,11 @@ public class ShopGoodsDTO implements Serializable {
     // ID
     private Integer id;
 
-//    // 菜单分类
-//    private Integer catagroryId;
-//
-//    // 店铺Id
-//    private long shopId;
+    // 菜单分类
+    private Integer catagroryId;
+
+    // 店铺Id
+    private Integer shopId;
 
     // 菜单分类
     private ShopGoodsCatagrory goodsCatagrory;
@@ -71,5 +71,14 @@ public class ShopGoodsDTO implements Serializable {
 
     // 父店
     private Integer pid;
+
+    //本店特色菜
+    private Integer isFeature;
+
+    //本店特色菜
+    private Integer isHot;
+
+    //本店特色菜
+    private Integer isNew;
 
 }

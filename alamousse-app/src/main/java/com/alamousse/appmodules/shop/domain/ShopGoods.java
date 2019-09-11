@@ -87,6 +87,18 @@ public class ShopGoods implements Serializable {
     @Column(name = "cdescription")
     private String cdescription;
 
+    //本店特色菜
+    @Column(name = "is_feature")
+    private Integer isFeature;
+
+    //本店特色菜
+    @Column(name = "is_hot")
+    private Integer isHot;
+
+    //本店特色菜
+    @Column(name = "is_new")
+    private Integer isNew;
+
     public void copy(ShopGoods source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
     }

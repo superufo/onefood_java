@@ -46,7 +46,7 @@ public interface ShopGoodsService {
      * @return
      */
     //@CacheEvict(allEntries = true)
-    ShopGoodsDTO create(ShopGoods resources);
+    ShopGoodsDTO create(ShopGoodsDTO resources);
 
     /**
      * update

@@ -51,6 +51,7 @@ public class SecurityUtils {
     public static Integer getShopId(){
         Object obj = getUserDetails();
         JSONObject json = new JSONObject(obj);
+        System.out.print(json);
         return json.get("shopId", Integer.class);
     }
 }

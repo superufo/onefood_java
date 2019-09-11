@@ -24,6 +24,18 @@ public class ShopGoodsQueryCriteria{
     @Query
     private Integer shopId;
 
+    //本店特色菜
+    @Query
+    private Integer isFeature;
+
+    //本店特色菜
+    @Query
+    private Integer isHot;
+
+    //本店特色菜
+    @Query
+    private Integer isNew;
+
 //    @Query(propName = "id", joinName = "goodsCatagrory")
 //    private Integer catagroryId;
 

@@ -3,6 +3,7 @@ package com.alamousse.modules.shop.rest;
 import com.alamousse.aop.log.Log;
 import com.alamousse.modules.shop.domain.ShopGoods;
 import com.alamousse.modules.shop.service.ShopGoodsService;
+import com.alamousse.modules.shop.service.dto.ShopGoodsDTO;
 import com.alamousse.modules.shop.service.dto.ShopGoodsQueryCriteria;
 import com.alamousse.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class ShopGoodsController {
     @ApiOperation(value = "新增ShopGoods")
     @PostMapping(value = "/shopGoods")
     @PreAuthorize("hasAnyRole('ADMIN','SHOPGOODS_ALL','SHOPGOODS_CREATE')")
-    public ResponseEntity create(@Validated @RequestBody ShopGoods resources){
+    public ResponseEntity create(@Validated @RequestBody ShopGoodsDTO resources){
         return new ResponseEntity(shopGoodsService.create(resources),HttpStatus.CREATED);
     }
 
