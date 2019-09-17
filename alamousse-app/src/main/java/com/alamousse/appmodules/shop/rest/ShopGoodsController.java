@@ -4,6 +4,7 @@ import com.alamousse.aop.log.Log;
 import com.alamousse.appmodules.shop.domain.ShopGoods;
 import com.alamousse.appmodules.shop.service.ShopGoodsService;
 import com.alamousse.appmodules.shop.service.dto.ShopGoodsQueryCriteria;
+import com.alamousse.response.HttpResponse;
 import com.alamousse.utils.SecurityUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,7 +35,9 @@ public class ShopGoodsController {
     @GetMapping(value = "/shopGoods")
     public ResponseEntity getShopGoods(ShopGoodsQueryCriteria criteria, Pageable pageable){
         this.setSearchShop(criteria);
-        return new ResponseEntity(shopGoodsService.queryAll(criteria,pageable),HttpStatus.OK);
+        //return new ResponseEntity(shopGoodsService.queryAll(criteria,pageable),HttpStatus.OK);
+
+        return new ResponseEntity(new HttpResponse(0,shopGoodsService.queryAll(criteria,pageable),null),HttpStatus.OK);
     }
 
     @Log("新增ShopGoods")

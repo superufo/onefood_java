@@ -43,6 +43,7 @@ public class MemberJwtAuthorizationTokenFilter extends OncePerRequestFilter {
             authToken = requestHeader.substring(7);
             try {
                 username = memberJwtTokenUtil.getUsernameFromToken(authToken);
+                System.out.print("----username----:"+username+"------");
             } catch (ExpiredJwtException e) {
                 log.error(e.getMessage());
             }

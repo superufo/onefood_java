@@ -2,13 +2,16 @@ package com.alamousse.appmodules.shop.service.impl;
 
 import com.alamousse.appmodules.shop.domain.ShopGoods;
 import com.alamousse.appmodules.shop.repository.ShopGoodsRepository;
+import com.alamousse.appmodules.shop.service.ShopGoodsPictureService;
 import com.alamousse.appmodules.shop.service.ShopGoodsService;
 import com.alamousse.appmodules.shop.service.dto.ShopGoodsDTO;
 import com.alamousse.appmodules.shop.service.dto.ShopGoodsQueryCriteria;
+import com.alamousse.appmodules.shop.service.dto.vo.ShopGoodsCatagroryVo;
 import com.alamousse.appmodules.shop.service.mapper.ShopGoodsMapper;
 import com.alamousse.utils.PageUtil;
 import com.alamousse.utils.QueryHelp;
 import com.alamousse.utils.ValidationUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +19,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -30,17 +35,51 @@ public class ShopGoodsServiceImpl implements ShopGoodsService {
     private ShopGoodsRepository shopGoodsRepository;
 
     @Autowired
+    private ShopGoodsPictureService shopGoodsPictureService;
+
+    @Autowired
     private ShopGoodsMapper shopGoodsMapper;
 
     @Override
     public Object queryAll(ShopGoodsQueryCriteria criteria, Pageable pageable){
         Page<ShopGoods> page = shopGoodsRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
-        return PageUtil.toPage(page.map(shopGoodsMapper::toDto));
+
+        List<ShopGoodsDTO> pageRes = new ArrayList<ShopGoodsDTO> ();
+        for (ShopGoods it : page) {
+            ShopGoodsDTO sgDto =  new  ShopGoodsDTO();
+            Integer goodsId = (Integer)it.getId();
+            ArrayList<String> goodsPics =  (ArrayList<String>) shopGoodsPictureService.findPicByGoodsId(goodsId);
+
+            //对象 it 属性赋值给 对象 sgDto
+            BeanUtils.copyProperties(it,sgDto);
+            sgDto.setGoodsPics(goodsPics);
+
+            pageRes.add(sgDto);
+        }
+
+        return PageUtil.toPage(pageRes,page.getTotalElements());
+        //return PageUtil.toPage(page.map(shopGoodsMapper::toDto));
     }
 
     @Override
     public Object queryAll(ShopGoodsQueryCriteria criteria){
-        return shopGoodsMapper.toDto(shopGoodsRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder)));
+        List<ShopGoods>  res =  shopGoodsRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder));
+
+        List<ShopGoodsDTO> listRes = new ArrayList<ShopGoodsDTO> ();
+        for ( ShopGoods itq : res) {
+            ShopGoodsDTO sgsDto =  new  ShopGoodsDTO();
+
+            System.out.print(itq.getId());
+            ArrayList<String> goodsPics =  (ArrayList<String>) shopGoodsPictureService.findPicByGoodsId( (Integer)itq.getId() );
+
+            //对象 it 属性赋值给 对象 sgDto
+            BeanUtils.copyProperties(itq,sgsDto);
+            sgsDto.setGoodsPics(goodsPics);
+
+            listRes.add(sgsDto);
+        }
+
+        return listRes;
     }
 
     @Override

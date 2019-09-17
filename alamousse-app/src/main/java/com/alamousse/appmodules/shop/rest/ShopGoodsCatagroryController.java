@@ -5,6 +5,7 @@ import com.alamousse.appmodules.shop.domain.ShopGoodsCatagrory;
 import com.alamousse.appmodules.shop.service.ShopGoodsCatagroryService;
 import com.alamousse.appmodules.shop.service.dto.ShopGoodsCatagroryDTO;
 import com.alamousse.appmodules.shop.service.dto.ShopGoodsCatagroryQueryCriteria;
+import com.alamousse.response.HttpResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,8 @@ public class ShopGoodsCatagroryController {
     @ApiOperation(value = "查询ShopGoodsCatagrory")
     @GetMapping(value = "/shopGoodsCatagrory")
     public ResponseEntity getShopGoodsCatagrorys(ShopGoodsCatagroryQueryCriteria criteria, Pageable pageable){
-        return new ResponseEntity(shopGoodsCatagroryService.queryAll(criteria,pageable),HttpStatus.OK);
+        //return new ResponseEntity(shopGoodsCatagroryService.queryAll(criteria,pageable),HttpStatus.OK);
+        return new ResponseEntity(new HttpResponse(0,shopGoodsCatagroryService.queryAll(criteria,pageable),null),HttpStatus.OK);
     }
 
 

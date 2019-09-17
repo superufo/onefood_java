@@ -36,11 +36,11 @@ public class Adv implements Serializable {
 
     // Content
     @Column(name = "content")
-    private Integer content;
+    private String content;
 
     // PIcture
     @Column(name = "pic")
-    private Integer pic;
+    private String pic;
 
     // Link
     @Column(name = "link")

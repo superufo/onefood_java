@@ -5,6 +5,8 @@ import com.alamousse.appmodules.shop.service.dto.ShopGoodsPictureDTO;
 import com.alamousse.appmodules.shop.service.dto.ShopGoodsPictureQueryCriteria;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 //import org.springframework.cache.annotation.CacheConfig;
 //import org.springframework.cache.annotation.CacheEvict;
 //import org.springframework.cache.annotation.Cacheable;
@@ -40,6 +42,9 @@ public interface ShopGoodsPictureService {
      */
     //@Cacheable(key = "#p0")
     ShopGoodsPictureDTO findById(Long id);
+
+
+    List<String> findPicByGoodsId(Integer GoodsId);
 
     /**
      * create

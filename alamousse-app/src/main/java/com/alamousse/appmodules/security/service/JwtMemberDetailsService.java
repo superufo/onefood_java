@@ -26,7 +26,7 @@ public class JwtMemberDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String account){
         System.out.print("account:"+account);
 
-        memberService.findMemberVoByInfo(100001,"guest");
+        //memberService.findMemberVoByInfo(100001,"guest");
         Member member =  memberService.findMember(account);
 
         if (member == null) {

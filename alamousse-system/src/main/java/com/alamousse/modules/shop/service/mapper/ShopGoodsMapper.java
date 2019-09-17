@@ -14,3 +14,4 @@ import org.mapstruct.ReportingPolicy;
 public interface ShopGoodsMapper extends EntityMapper<ShopGoodsDTO, ShopGoods> {
 
 }
+

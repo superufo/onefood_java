@@ -25,10 +25,10 @@ public class AdvDTO implements Serializable {
     private String title;
 
     // Content
-    private Integer content;
+    private String content;
 
     // PIcture
-    private Integer pic;
+    private String pic;
 
     // Link
     private String link;

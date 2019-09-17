@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 /**
@@ -48,6 +49,12 @@ public class ShopGoodsPictureServiceImpl implements ShopGoodsPictureService {
         Optional<ShopGoodsPicture> shopGoodsPicture = shopGoodsPictureRepository.findById(id);
         ValidationUtil.isNull(shopGoodsPicture,"ShopGoodsPicture","id",id);
         return shopGoodsPictureMapper.toDto(shopGoodsPicture.get());
+    }
+
+    @Override
+    public ArrayList<String> findPicByGoodsId(Integer GoodsId){
+        ArrayList<String> shopGoodsList = (ArrayList<String>)shopGoodsPictureRepository.findPicByGoodsId(GoodsId);
+        return shopGoodsList;
     }
 
     @Override

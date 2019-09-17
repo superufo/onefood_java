@@ -103,5 +103,5 @@ public class ShopGoods implements Serializable {
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
     }
 
-    public @interface Update {}
+    //public @interface Update {}
 }

@@ -29,11 +29,11 @@ public class AdvQueryCriteria{
 
     // 模糊
     @Query(type = Query.Type.INNER_LIKE)
-    private Integer content;
+    private String content;
 
     // 模糊
     @Query(type = Query.Type.INNER_LIKE)
-    private Integer pic;
+    private String pic;
 
     // 模糊
     @Query(type = Query.Type.INNER_LIKE)

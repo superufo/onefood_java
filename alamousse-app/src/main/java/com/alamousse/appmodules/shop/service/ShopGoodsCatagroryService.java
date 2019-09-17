@@ -14,7 +14,7 @@ import java.util.List;
 * @author mike
 * @date 2019-07-20
 */
-@CacheConfig(cacheNames = "shopGoodsCatagrory")
+//@CacheConfig(cacheNames = "shopGoodsCatagrory")
 public interface ShopGoodsCatagroryService {
 
     /**
@@ -23,7 +23,7 @@ public interface ShopGoodsCatagroryService {
     * @param pageable
     * @return
     */
-    @Cacheable(keyGenerator = "keyGenerator")
+    ////@Cacheable(keyGenerator = "keyGenerator")
     Object queryAll(ShopGoodsCatagroryQueryCriteria criteria, Pageable pageable);
 
     /**
@@ -31,7 +31,7 @@ public interface ShopGoodsCatagroryService {
     * @param criteria
     * @return
     */
-    @Cacheable(keyGenerator = "keyGenerator")
+    ////@Cacheable(keyGenerator = "keyGenerator")
     public Object queryAll(ShopGoodsCatagroryQueryCriteria criteria);
 
     /**
@@ -39,7 +39,7 @@ public interface ShopGoodsCatagroryService {
      * @param id
      * @return
      */
-    @Cacheable(key = "#p0")
+    //@Cacheable(key = "#p0")
     ShopGoodsCatagroryDTO findById(Integer id);
 
     /**
@@ -47,21 +47,21 @@ public interface ShopGoodsCatagroryService {
      * @param resources
      * @return
      */
-    @CacheEvict(allEntries = true)
+    //@CacheEvict(allEntries = true)
     ShopGoodsCatagroryDTO create(ShopGoodsCatagrory resources);
 
     /**
      * update
      * @param resources
      */
-    @CacheEvict(allEntries = true)
+    //@CacheEvict(allEntries = true)
     void update(ShopGoodsCatagrory resources);
 
     /**
      * delete
      * @param id
      */
-    @CacheEvict(allEntries = true)
+    //@CacheEvict(allEntries = true)
     void delete(Integer id);
 
     /**
@@ -69,6 +69,6 @@ public interface ShopGoodsCatagroryService {
      * @param pid
      * @return
      */
-    @Cacheable(key = "'parentId:'+#p0")
+    //@Cacheable(key = "'parentId:'+#p0")
     List<ShopGoodsCatagroryDTO> findByParentId(Integer pid);
 }

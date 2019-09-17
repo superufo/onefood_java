@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-
+import java.util.ArrayList;
 
 /**
 * @author jie
@@ -26,6 +26,9 @@ public class ShopGoodsDTO implements Serializable {
 
     // 菜单分类
     private ShopGoodsCatagrory goodsCatagrory;
+
+    // 菜单分类
+    private ArrayList<String> goodsPics;
 
     // 店铺Id
     private Shop shop;
@@ -66,12 +69,6 @@ public class ShopGoodsDTO implements Serializable {
     // 中文描述
     private String cdescription;
 
-    // 店铺级别
-    private Integer datalevel;
-
-    // 父店
-    private Integer pid;
-
     //本店特色菜
     private Integer isFeature;
 
@@ -80,5 +77,4 @@ public class ShopGoodsDTO implements Serializable {
 
     //本店特色菜
     private Integer isNew;
-
 }
