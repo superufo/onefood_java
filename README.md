@@ -57,13 +57,29 @@ cd  D:\reactnative_pro\food\restaurant_manager\admin\alamousse-master
 mvn clean && mvn compile && mvn package
 ```
 
+#### git分支
 
+新建远程临时分支 
 
+```
+git checkout -b tmp 
+```
 
+把新建的本地分支push到远程服务器，远程分支与本地分支同名（当然可以随意起名） 合并分支 ：
 
+```
+ git push origin tmp:tmp     
+ git merge    
+ git push origin tmp:tmp     
+ git merge  
+```
 
+ 删除指定的远程分支,   删除指定的本地分支:
 
-
+```
+ git push origin --delete tmp  
+ git branch -d  tmp
+```
 
 
 
