@@ -67,13 +67,19 @@ public class ShopGoods implements Serializable {
     @Column(name = "currency")
     private String currency;
 
-    @OneToOne
-    @JoinColumn(name = "catagrory_id")
-    private ShopGoodsCatagrory goodsCatagrory;
+//    @OneToOne
+//    @JoinColumn(name = "catagrory_id")
+//    private ShopGoodsCatagrory goodsCatagrory;
+//
+//    @OneToOne
+//    @JoinColumn(name = "shop_id")
+//    private Shop shop;
 
-    @OneToOne
-    @JoinColumn(name = "shop_id")
-    private Shop shop;
+    @Column(name = "catagrory_id")
+    private Integer catagroryId;
+
+    @Column(name = "shop_id")
+    private Integer shopId;
 
     // 货币符号
     @Column(name = "unit")

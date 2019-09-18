@@ -17,7 +17,7 @@ public class ShopGoodsQueryCriteria{
     private String id;
 
     // 模糊
-    @Query(type = Query.Type.INNER_LIKE)
+    @Query
     private Integer catagroryId;
 
     // 精确
