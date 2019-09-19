@@ -100,6 +100,10 @@ nohup /usr/bin/java -Xms256m -Xmx256m -Xmn72m -XX:PermSize=180m -XX:MaxPermSize=
 stop:
 kill -9 `ps -ef|grep alamousse-system-0.01.jar|grep -v grep|awk '{print $2}'`
 
+redis:
+/usr/bin/redis-server /etc/redis/redis.conf
+pkill  redis-server
+
 参考:https://blog.csdn.net/goolejuck/article/details/47753041
 
 ```
