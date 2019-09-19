@@ -98,7 +98,7 @@ pc jar run:
 nohup /usr/bin/java -Xms256m -Xmx256m -Xmn72m -XX:PermSize=180m -XX:MaxPermSize=180m  -Xss1024k -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=73 -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+PrintClassHistogram -XX:+PrintGCDetails -Xloggc:/root/java/logs/pcgc.log  -Dsun.rmi.dgc.server.gcInterval=3600000 -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.server.exceptionTrace=true -jar /root/java/alamousse-system-0.01.jar  > /root/java/logs/pccatalina.out 2>&1 &
 
 stop:
-kill -9 `ps -ef|grep alamousse-system-2.1.jar|grep -v grep|awk '{print $2}'`
+kill -9 `ps -ef|grep alamousse-system-0.01.jar|grep -v grep|awk '{print $2}'`
 
 参考:https://blog.csdn.net/goolejuck/article/details/47753041
 
