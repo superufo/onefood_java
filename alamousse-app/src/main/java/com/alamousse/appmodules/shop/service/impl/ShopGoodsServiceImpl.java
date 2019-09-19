@@ -47,7 +47,7 @@ public class ShopGoodsServiceImpl implements ShopGoodsService {
         List<ShopGoodsDTO> pageRes = new ArrayList<ShopGoodsDTO> ();
         for (ShopGoods it : page) {
             ShopGoodsDTO sgDto =  new  ShopGoodsDTO();
-            Integer goodsId = (Integer)it.getId();
+            Integer goodsId = it.getId();
             ArrayList<String> goodsPics =  (ArrayList<String>) shopGoodsPictureService.findPicByGoodsId(goodsId);
 
             //对象 it 属性赋值给 对象 sgDto

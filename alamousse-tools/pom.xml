@@ -5,7 +5,7 @@
     <parent>
         <artifactId>alamousse</artifactId>
         <groupId>com.alamousse</groupId>
-        <version>2.1</version>
+        <version>0.01</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>com.alamousse</groupId>
             <artifactId>alamousse-logging</artifactId>
-            <version>2.1</version>
+            <version>0.01</version>
         </dependency>
 
         <!--邮件依赖-->

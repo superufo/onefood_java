@@ -55,7 +55,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("alamousse 接口文档")
-                .version("2.1")
+                .version("2.1.0")
                 .build();
     }
 
