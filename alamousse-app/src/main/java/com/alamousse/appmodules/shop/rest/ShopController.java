@@ -4,6 +4,7 @@ import com.alamousse.aop.log.Log;
 import com.alamousse.appmodules.shop.domain.Shop;
 import com.alamousse.appmodules.shop.service.ShopService;
 import com.alamousse.appmodules.shop.service.dto.ShopQueryCriteria;
+import com.alamousse.response.HttpResponse;
 import com.alamousse.utils.SecurityUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,26 +35,28 @@ public class ShopController {
     @Log("查询Shop")
     @ApiOperation(value = "查询Shop")
     @GetMapping(value = "/shop")
-    @PreAuthorize("hasAnyRole('ADMIN','SHOP_ALL','SHOP_SELECT')")
     public ResponseEntity getShops(ShopQueryCriteria criteria, Pageable pageable){
         this.setSearchShop(criteria);
-        return new ResponseEntity(shopService.queryAll(criteria,pageable),HttpStatus.OK);
+        //return new ResponseEntity(shopService.queryAll(criteria,pageable),HttpStatus.OK);
+        return new ResponseEntity(new HttpResponse(0,shopService.queryAll(criteria,pageable),null),HttpStatus.OK);
     }
 
     @Log("根据ID查询Shop")
     @ApiOperation(value = "根据ID查询Shop")
     @GetMapping(value = "/shop/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN','SHOP_ALL','SHOP_SELECT')")
     public ResponseEntity getShop(@PathVariable Integer id){
-        return new ResponseEntity(shopService.findById(id), HttpStatus.OK);
+        //return new ResponseEntity(shopService.findById(id), HttpStatus.OK)
+        return new ResponseEntity(new HttpResponse(0,shopService.findById(id),null),HttpStatus.OK);
     }
 
     private void setSearchShop(ShopQueryCriteria criteria){
-        Integer shopId = SecurityUtils.getShopId();
-        if ( shopId ==  1 ) {
-            criteria.setId(null);
-        }else{
-            criteria.setId(shopId);
+        if (criteria.getId()==null ) {
+            Integer shopId = SecurityUtils.getShopId();
+            if (shopId == 1) {
+                criteria.setId(null);
+            } else {
+                criteria.setId(shopId);
+            }
         }
     }
 

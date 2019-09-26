@@ -40,5 +40,11 @@ public class AddressDTO implements Serializable {
 
     private ZoneVo zoneVo;
 
+    private String receiverName;
+
+    private String receiverMobile;
+
+    private String addressLabel;
+
     //private AddressVo addressVo;
 }

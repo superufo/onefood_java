@@ -5,6 +5,8 @@ import com.alamousse.appmodules.shop.service.dto.AddressDTO;
 import com.alamousse.appmodules.shop.service.dto.AddressQueryCriteria;
 import org.springframework.data.domain.Pageable;
 
+import java.util.ArrayList;
+
 //import org.springframework.cache.annotation.CacheConfig;
 //import org.springframework.cache.annotation.CacheEvict;
 //import org.springframework.cache.annotation.Cacheable;
@@ -41,6 +43,10 @@ public interface AddressService {
     //@Cacheable(key = "#p0")
     AddressDTO findById(Long id);
 
+
+    AddressDTO findDefaultByMid(Integer mid);
+
+    ArrayList<AddressDTO> findInfoByMid(Integer mid);
     /**
      * create
      * @param resources

@@ -97,6 +97,15 @@ public class MemberSecurityConfig extends WebSecurityConfigurerAdapter {
                 //增加用户  用户注册
                 .antMatchers( HttpMethod.POST,"/api/member").anonymous()
 
+                //adv  目录列表  产品列表 地区列表
+                .antMatchers( HttpMethod.GET,"/api/shopGoodsCatagrory/**").anonymous()
+                .antMatchers( HttpMethod.GET,"/api/shopGoods/**").anonymous()
+                .antMatchers( HttpMethod.GET,"/api/adv/**").anonymous()
+                .antMatchers( HttpMethod.GET,"/api/zone/**").anonymous()
+                .antMatchers( HttpMethod.GET,"/api/getGoodsInfo/**").anonymous()
+                .antMatchers( HttpMethod.GET,"/api/shop/**").anonymous()
+
+
                 // 支付宝回调
                 .antMatchers("/api/aliPay/return").anonymous()
                 .antMatchers("/api/aliPay/notify").anonymous()

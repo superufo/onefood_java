@@ -40,10 +40,16 @@ public class ShopGoodsController {
         return new ResponseEntity(new HttpResponse(0,shopGoodsService.queryAll(criteria,pageable),null),HttpStatus.OK);
     }
 
+    @Log("查询ShopGoods")
+    @ApiOperation(value = "查询ShopGoods")
+    @GetMapping(value = "/getGoodsInfo/{id}")
+    public ResponseEntity findById(@PathVariable  Integer id){
+        return new ResponseEntity(new HttpResponse(0,shopGoodsService.findById(id),null),HttpStatus.OK);
+    }
+
     @Log("新增ShopGoods")
     @ApiOperation(value = "新增ShopGoods")
     @PostMapping(value = "/shopGoods")
-    //@PreAuthorize("hasAnyRole('ADMIN','SHOPGOODS_ALL','SHOPGOODS_CREATE')")
     public ResponseEntity create(@Validated @RequestBody ShopGoods resources){
         return new ResponseEntity(shopGoodsService.create(resources),HttpStatus.CREATED);
     }
@@ -65,11 +71,13 @@ public class ShopGoodsController {
     }
 
     private void setSearchShop(ShopGoodsQueryCriteria criteria){
-        Integer shopId = SecurityUtils.getShopId();
-        if (shopId !=  1 ) {
-            criteria.setShopId(shopId);
-        }else{
-            criteria.setShopId(null);
+        if (criteria.getShopId()==null ) {
+            Integer shopId = SecurityUtils.getShopId();
+            if (shopId != 1) {
+                criteria.setShopId(shopId);
+            } else {
+                criteria.setShopId(null);
+            }
         }
     }
 }

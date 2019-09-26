@@ -41,4 +41,15 @@ public class AddressQueryCriteria{
     // 精确
     @Query
     private Integer isDefault;
+
+    @Query
+    private String receiverName;
+
+    // detail address
+    @Query
+    private String receiverMobile;
+
+    // detail address
+    @Query
+    private String addressLabel;
 }

@@ -50,6 +50,17 @@ public class Address implements Serializable {
     @Column(name = "is_default")
     private Integer isDefault;
 
+    @Column(name = "receiver_name")
+    private String receiverName;
+
+    // detail address
+    @Column(name = "receiver_mobile")
+    private String receiverMobile;
+
+    // detail address
+    @Column(name = "address_label")
+    private String addressLabel;
+
     public void copy(Address source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
     }
