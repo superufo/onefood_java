@@ -38,6 +38,8 @@ alamousse基于 Spring Boot 2.1.0 、 Jpa、 Spring Security、redis、Vue的前
 
 #### 开发
 
+signin.amazonaws.cn  developonefood@gmail.com   Monkey123.com
+
 Google: developonefood@gmail.com psw：xc8tmg2b
 Facebook, 
 
